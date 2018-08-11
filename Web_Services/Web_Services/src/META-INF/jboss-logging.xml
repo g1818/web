@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- My application jboss-logging.xml -->
+
+<logging xmlns="urn:jboss:logging:6.0" context="vRegCoSS">
+
+    <!--
+      ~ This element, in conjunction with the "context" attribute above, tells the
+      ~ logging system that I want my own separate logging environment.
+      -->
+    <define-context name="vRegCoSS"/>
+
+    <!-- Just an example handler. -->
+    <file-handler file-name="./log/RegCoSS.log" name="FILE" autoflush="true" append="true">
+        <formatter>
+            <pattern-formatter pattern="%d %-5p [%c] (%t) %s%E%n"/>
+        </formatter>
+
+        <properties>
+            <property name="encoding">UTF-8</property>
+        </properties>
+    </file-handler>
+
+
+    <!-- Configure the root logger with my handler from above -->
+    <root-logger>
+        <level name="DEBUG"/>
+        <handlers>
+            <handler-ref name="FILE"/>
+        </handlers>
+    </root-logger>
+</logging>
